@@ -1,6 +1,6 @@
 /// app.js
 import React from "react";
-import DeckGL, { LineLayer } from "deck.gl";
+import DeckGL, { GeoJsonLayer } from "deck.gl";
 import { StaticMap } from "react-map-gl";
 
 import data from "./data";
@@ -18,9 +18,22 @@ const initialViewState = {
   bearing: -12
 };
 
+const pointLayer = new GeoJsonLayer({
+  id: "geojson-layer",
+  data,
+  pickable: true,
+  stroked: false,
+  filled: true,
+  extruded: true,
+  getFillColor: [16, 160, 80, 200],
+  getRadius: 100,
+  getLineWidth: 1,
+  getElevation: 30
+});
+
 class App extends React.Component {
   render() {
-    const layers = [new LineLayer({ id: "line-layer", data })];
+    const layers = [pointLayer];
     console.log(token);
 
     return (
