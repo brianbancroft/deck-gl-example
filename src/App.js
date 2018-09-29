@@ -3,6 +3,8 @@ import React from "react";
 import DeckGL, { LineLayer } from "deck.gl";
 import { StaticMap } from "react-map-gl";
 
+import data from "./data";
+
 // Set your mapbox access token here
 const token = process.env.REACT_APP_MAP_TOKEN;
 const source = process.env.REACT_APP_MAP_SOURCE;
@@ -15,14 +17,6 @@ const initialViewState = {
   pitch: 40,
   bearing: -12
 };
-
-// Data to be used by the LineLayer
-const data = [
-  {
-    sourcePosition: [-122.41669, 37.7853],
-    targetPosition: [-122.41669, 37.781]
-  }
-];
 
 class App extends React.Component {
   render() {
